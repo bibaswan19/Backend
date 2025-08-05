@@ -4,6 +4,8 @@ const cors = require('cors');
 require('dotenv').config();
 
 const notificationRoutes = require('./routes/notifications');
+const studyMaterialRoutes = require('./routes/studyMaterials');
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -24,6 +26,7 @@ mongoose.connect(process.env.MONGO_URI, {
 });
 
 app.use('/api/notifications', notificationRoutes);
+app.use('/api/study-materials', studyMaterialRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
